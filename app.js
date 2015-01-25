@@ -4,11 +4,24 @@ var whatever = {
   cur: 1
 }
 
+// function observer(changes) {
+//   changes.forEach(function (change, i) {
+//     console.log('what property changed? ' + change.name)
+//     console.log('how did it change? ' + change.type)
+//     console.log('what\'s the current value? ' + change.object[object.name])
+//     console.log(change)
+//   })
+// }
+
 function observer(changes) {
   changes.forEach(function (change, i) {
     console.log('what property changed? ' + change.name)
     console.log('how did it change? ' + change.type)
-    console.log('what\'s the current value? ' + change.object[object.name])
+    try {
+      console.log('what\'s the current value? ' + change.object[object.name])
+    } catch (err) {
+      console.log(err.stack);
+    }
     console.log(change)
   })
 }
@@ -31,3 +44,5 @@ var sched = later.parse.recur().every(1).minute()
 later.setInterval(function () {
   test.next()
 }, sched)
+
+x => x + 1(x, y) => x + y
